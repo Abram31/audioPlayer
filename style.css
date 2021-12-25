@@ -1,0 +1,220 @@
+* {
+    text-decoration: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    position: relative;
+  margin: 0;
+  padding: 0;
+  display:flex;
+  background:center / cover no-repeat url(icons/background.jpg);       
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+  /* background:url(icons/background.jpg);
+  /* background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%); */
+  align-items: center;
+  justify-content: center;
+  transition: 2s;
+}
+
+
+.wrapper-player {
+    position: relative;
+    margin: 20% 15px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 1px 0px 30px -3px bisque;
+    height: 400px;
+    padding: 0;
+}
+.player {
+    position: relative;
+    display: flex;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: url(icons/background.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    align-items: flex-end;
+    transition: 2s;
+   
+}
+.controls {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 45%;
+    border-radius: 20px;
+    background: radial-gradient(black, #00000075);
+
+}
+.control {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items:center ;
+    gap: 10px;
+   
+    margin: auto 3%;
+}
+.play {
+    content: url(icons/svg/play.svg);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.play:hover {
+    content: url(icons/svg/play-hover.svg)
+
+}
+.pause {
+    content: url(icons/svg/pause.svg);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    
+}
+.pause:hover {
+    content: url(icons/svg/pause-hover.svg)
+}
+.active {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.prevue {
+    content: url(icons/svg/left.svg);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+}
+.prevue:hover{
+    content: url(icons/svg/left-hover.svg)
+}
+.next {
+    
+    content: url(icons/svg/rigth.svg);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.next:hover {
+    content: url(icons/svg/rigth-hover.svg)
+}
+
+.nameTrack {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.prevueAndNextBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.artistName {
+    color: #E4A951;
+    font-size: 24px;
+}
+
+.trackTitle {
+    font-size: 20px;
+    font-style: oblique;
+}
+
+
+.wrapper-progress-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: auto 3%;
+}
+.progress-track {
+    display: flex;
+    position: relative;
+    width: 60%;
+    height: 6px;
+    background-color: white;
+    border-radius: 10px;
+}
+.time-current {
+    /* content: '0:00'; */
+    position: absolute;
+    padding: 5px 0;
+    color: white;
+    /* background-color: rgb(114, 111, 111); */
+}
+.full-time {
+    /* content: '0:00'; */
+    position: absolute;
+    color: white;
+    right: 0;
+    top: -18px;
+    /* padding: 5px 0; */
+    /* background-color: rgb(114, 111, 111);*/
+}
+
+.progress-elepsade {
+    position: relative;
+    flex-basis: 30%;
+    height: 6px;
+    background-color: rgb(8, 5, 5);
+    border-radius: 10px;
+
+}
+.progress-elepsade:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50px;
+    background-color: rgb(114, 111, 111);
+}
+
+.progress-volume-track {
+    display: flex;
+    width: 30%;
+    height: 6px;
+    background-color: white;
+    border-radius: 10px;
+}
+.progress-volume-elepsade {
+    position: relative;
+    flex-basis: 30%;
+    height: 6px;
+    background-color: rgb(8, 5, 5);
+    border-radius: 10px;
+
+}
+
+.progress-volume-elepsade:after {
+     content: '';
+    position: absolute;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50px;
+    background-color: rgb(114, 111, 111);
+
+}
+.tracks {
+}
+.track {
+}
