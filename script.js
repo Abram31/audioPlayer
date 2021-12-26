@@ -38,6 +38,9 @@ volumeTrack.addEventListener('click', currentVolume)
 volumeTrack.addEventListener('mousedown', scrollVolume);
 // audioTrack.addEventListener('mousedown', log);
 
+audioTrack.addEventListener('touchstart', touchScrollTime);
+
+
 const audioTracks = [
     audioSea = {
         artist: 'Voices of nature',
@@ -136,17 +139,19 @@ setInterval(item => {
 }, 200)
 function currentTimeBarFunction(event) {
     let positionEvent = event.offsetX;
+    // let positionEventTouch = event.changedTouches[0].pageX;
     let widthProgress = audioTrack.offsetWidth;
     let fullTimeTrack = audioTracks[numberTrack].track.duration;
     let currentTimeAudio = audioTracks[numberTrack].track.currentTime;
     console.log(positionEvent);
     console.log(widthProgress);
     console.log(fullTimeTrack);
+    // console.log(positionEventTouch);
 
 
     
-    audioTracks[numberTrack].track.currentTime = positionEvent / widthProgress * fullTimeTrack;
-    audioTrackElepsade.style.flexBasis = positionEvent/widthProgress * 100 + '%';
+    audioTracks[numberTrack].track.currentTime = (positionEvent || positionEventTouch) / widthProgress * fullTimeTrack;
+    audioTrackElepsade.style.flexBasis = (positionEvent || positionEventTouch)/widthProgress * 100 + '%';
     console.log('Время');
 }
 
@@ -156,6 +161,29 @@ function scrollTime () {
         audioTrack.removeEventListener('mousemove', currentTimeBarFunction);
         
     });
+}
+
+function touchScrollTime(event) {
+    let widthProgress = audioTrack.offsetWidth;
+    let positionEventTouch = event.changedTouches[0].pageX - audioTrack.getBoundingClientRect().x;
+    let fullTimeTrack = audioTracks[numberTrack].track.duration;
+    
+    // console.log(positionEventTouch);
+    // console.log(event.changedTouches);
+    // console.log(audioTrack.offsetX);
+    
+    audioTracks[numberTrack].track.currentTime = widthProgress/ positionEventTouch   * fullTimeTrack;
+    audioTrackElepsade.style.flexBasis =  positionEventTouch / widthProgress * 100 + '%';
+    
+    // document.addEventListener('touchend', function () {                         //////////////////как правильно удалить это событие?
+    //     audioTrack.removeEventListener('touchmove', currentTimeBarFunction);
+    
+    // });
+    touch();
+}
+function touch(params) {
+    audioTrack.addEventListener('touchmove', touchScrollTime, false);
+    
 }
 
 // ----------------------------------------------- COUNT TIME--------------------------------------------------
